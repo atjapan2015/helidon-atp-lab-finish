@@ -15,7 +15,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.helidon.atp</groupId>
-	<artifactId>helidon-atp-lab</artifactId>
+	<artifactId>helidon-atp-lab-finish</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>

@@ -17,13 +17,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: helidon-atp-lab
+  name: helidon-atp-lab-finish
   labels:
-    app: helidon-atp-lab
+    app: helidon-atp-lab-finish
 spec:
   type: NodePort
   selector:
-    app: helidon-atp-lab
+    app: helidon-atp-lab-finish
   ports:
   - port: 8080
     targetPort: 8080
@@ -32,18 +32,18 @@ spec:
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: helidon-atp-lab
+  name: helidon-atp-lab-finish
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: helidon-atp-lab
+        app: helidon-atp-lab-finish
         version: v1
     spec:
       containers:
-      - name: helidon-atp-lab
-        image: helidon-atp-lab
+      - name: helidon-atp-lab-finish
+        image: helidon-atp-lab-finish
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080

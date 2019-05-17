@@ -30,7 +30,7 @@ mvn package
 ## Start the application
 
 ```
-java -jar target/helidon-atp-lab.jar
+java -jar target/helidon-atp-lab-finish.jar
 ```
 
 ## Exercise the application
@@ -70,13 +70,13 @@ curl -H 'Accept: application/json' -X GET http://localhost:8080/metrics
 ## Build the Docker Image
 
 ```
-docker build -t helidon-atp-lab .
+docker build -t helidon-atp-lab-finish .
 ```
 
 ## Start the application with Docker
 
 ```
-docker run --rm -p 8080:8080 helidon-atp-lab:latest
+docker run --rm -p 8080:8080 helidon-atp-lab-finish:latest
 ```
 
 Exercise the application as described above
@@ -87,5 +87,5 @@ Exercise the application as described above
 kubectl cluster-info                         # Verify which cluster
 kubectl get pods                             # Verify connectivity to cluster
 kubectl create -f app.yaml               # Deploy application
-kubectl get service helidon-atp-lab  # Verify deployed service
+kubectl get service helidon-atp-lab-finish  # Verify deployed service
 ```
