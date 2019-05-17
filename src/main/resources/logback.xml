@@ -59,8 +59,9 @@
     <logger name="jdbc.sqlonly" level="info" />
 	<logger name="jdbc.sqltiming" level="info" />
 	<logger name="jdbc.resultsettable" level="info" />
-
-	<root level="info">
+	<logger name="com.zaxxer.hikari.pool.HikariPool" level="debug" />
+	
+	<root level="debug">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
 	</root>
