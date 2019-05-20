@@ -29,6 +29,7 @@ import javax.json.Json;
 import javax.json.JsonBuilderFactory;
 import javax.json.JsonObject;
 import javax.sql.DataSource;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -192,6 +193,7 @@ public class GreetResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
+	@Valid
 	public Emp insertEmp(Emp emp) throws SQLException {
 
 		Emp newEmp = greetFacade.insertEmp(emp);

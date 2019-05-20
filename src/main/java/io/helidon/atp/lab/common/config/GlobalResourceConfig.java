@@ -942,7 +942,7 @@ public class GlobalResourceConfig extends Application implements Configurable<Gl
 	 *
 	 * @return set of configured resource and/or provider instances.
 	 */
-	Set<Object> _getSingletons() {
+	protected Set<Object> _getSingletons() {
 		final Set<Object> result = new HashSet<>();
 		result.addAll(state.getInstances());
 		return result;
@@ -1151,7 +1151,7 @@ public class GlobalResourceConfig extends Application implements Configurable<Gl
 		}
 
 		@Override
-		Set<Object> _getSingletons() {
+		protected Set<Object> _getSingletons() {
 			return application.getSingletons();
 		}
 	}
@@ -1250,7 +1250,7 @@ public class GlobalResourceConfig extends Application implements Configurable<Gl
 		}
 
 		@Override
-		Set<Object> _getSingletons() {
+		protected Set<Object> _getSingletons() {
 			// Get only a read-only classes cached in internal state.
 			return super.state.getInstances();
 		}

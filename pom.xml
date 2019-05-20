@@ -80,8 +80,7 @@
 							<manifestEntries>
 								<Built-By>helidon</Built-By>
 								<!-- It will be error when there any /r/n in below line. DON'T FORMAT. -->
-								<Class-Path>libs/ojdbc-8.jar libs/oraclepki-8.jar
-									libs/osdt_core-8.jar libs/osdt_cert-8.jar libs/ucp-8.jar</Class-Path>
+								<Class-Path>libs/ojdbc-8.jar libs/oraclepki-8.jar libs/osdt_core-8.jar libs/osdt_cert-8.jar libs/ucp-8.jar</Class-Path>
 							</manifestEntries>
 						</archive>
 					</configuration>
@@ -90,6 +89,32 @@
 		</pluginManagement>
 
 		<plugins>
+		    <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                   <nodeVersion>v8.11.1</nodeVersion>
+                    <npmVersion>5.6.0</npmVersion>
+                    <workingDirectory>src/main/resources/WEB</workingDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -231,6 +256,23 @@
 			    <artifactId>jersey-mvc-freemarker</artifactId>
 			    <version>2.26</version>
 			</dependency>
+			<dependency>
+			    <groupId>org.glassfish.jersey.ext</groupId>
+			    <artifactId>jersey-bean-validation</artifactId>
+			    <version>2.26</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+			<dependency>
+			    <groupId>com.fasterxml.jackson.core</groupId>
+			    <artifactId>jackson-core</artifactId>
+			    <version>2.9.8</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+			<dependency>
+			    <groupId>com.fasterxml.jackson.core</groupId>
+			    <artifactId>jackson-databind</artifactId>
+			    <version>2.9.8</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -253,6 +295,10 @@
 		<dependency>
 			<groupId>io.helidon.integrations.cdi</groupId>
 			<artifactId>helidon-integrations-cdi-datasource-hikaricp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.helidon.media.jackson</groupId>
+			<artifactId>helidon-media-jackson-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>oracle</groupId>
@@ -306,7 +352,20 @@
 		<dependency>
 		    <groupId>org.glassfish.jersey.ext</groupId>
 		    <artifactId>jersey-mvc-freemarker</artifactId>
-		</dependency>	
+		</dependency>
+		<dependency>
+		    <groupId>org.glassfish.jersey.ext</groupId>
+		    <artifactId>jersey-bean-validation</artifactId>
+		</dependency>
+		<!-- 
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		</dependency> 
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		</dependency> -->
 		<dependency>
 			<groupId>org.jboss</groupId>
 			<artifactId>jandex</artifactId>

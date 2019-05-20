@@ -47,6 +47,7 @@
 		</encoder>
 	</appender>
 
+    <logger name="io.helidon" level="info" />
     <logger name="io.helidon.atp.lab" level="info" />
 	<logger name="io.helidon.config" level="info" />
 	<logger name="io.helidon.security" level="info" />
@@ -61,7 +62,7 @@
 	<logger name="jdbc.resultsettable" level="info" />
 	<logger name="com.zaxxer.hikari.pool.HikariPool" level="debug" />
 	
-	<root level="debug">
+	<root level="info">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
 	</root>
